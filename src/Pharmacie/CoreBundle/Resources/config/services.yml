@@ -7,3 +7,15 @@ services:
 #        tags:
 #            - { name: twig.extension }
 #            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }
+
+    services:
+        class: Pharmacie\CoreBundle\Services\ServicesService
+        calls:
+          - [ setContainer, [ @service_container ] ]
+
+    databases:
+        class: Pharmacie\CoreBundle\Services\DatabasesService
+        calls:
+          - [ setContainer, [ @service_container ] ]
+
+
